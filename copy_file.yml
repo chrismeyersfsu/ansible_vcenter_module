@@ -1,0 +1,12 @@
+- name: copy datacenter file
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: copy datacenter iso file
+      vcenter_copy:
+        vcenter_hostname: "{{vcenter_hostname}}"
+        username: "{{vcenter_username}}"
+        password: "{{vcenter_password}}"
+        source: "https://vsphere.company.com/folder/ISOS/CentOS-6.5-x86_64-minimal.iso?dcPath=Production&dsName=datastore1"
+        dest: "https://vsphere.company.com/folder/ISOs/CentOS-6.5-x86_64-minimal.iso?dcPath=Engineering&dsName=datastore2"
